@@ -21,3 +21,15 @@ func insertAtFirst<T>(_ val: T, head: inout ListNode<T>?) {
     newNode.next = head
     head = newNode
 }
+
+// inserting at position k in LinkedList
+
+func insertAtKthPosition<T>(_ val: T, _ head: ListNode<T>?, _ k: Int ) -> ListNode<T>? {
+    if k == 0 {
+        return ListNode(val: val)
+    }
+    
+    let newNode = ListNode(val: val)
+    newNode.next = insertAtKthPosition(val, head, k-1)
+    return newNode
+}
