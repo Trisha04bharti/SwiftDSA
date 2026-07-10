@@ -8,10 +8,27 @@
 import SwiftUI
 
 @main
-struct SwiftDSAApp: App {
+struct ShoppingCartApp: App {
+
+    @StateObject var vm = CartViewModel()
+
+    let logger: CartLogger
+
+    init() {
+
+        let viewModel = CartViewModel()
+
+        _vm = StateObject(wrappedValue: viewModel)
+
+        logger = CartLogger(viewModel: viewModel)
+    }
+
     var body: some Scene {
+
         WindowGroup {
-            ContentView()
+
+        ProductHomeView()
+                .environmentObject(vm)
         }
     }
 }

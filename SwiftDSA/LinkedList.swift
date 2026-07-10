@@ -34,20 +34,20 @@ func insertAtKthPosition<T>(_ val: T, _ head: ListNode<T>?, _ k: Int ) -> ListNo
     return newNode
 }
 
-func reverseLinkedList(_ head: ListNode?) -> ListNode? {
-
-    var previous: ListNode? = nil
-    var current = head
-
-    while current != nil {
-
-        let nextNode = current?.next     // Save next node
-
-        current?.next = previous         // Reverse the link
-
-        previous = current               // Move previous forward
-        current = nextNode               // Move current forward
-    }
-
-    return previous
-}
+//func reverseLinkedList(_ head: ListNode?) -> ListNode? {
+//
+//    var previous: ListNode? = nil
+//    var current = head
+//
+//    while current != nil {
+//
+//        let nextNode = current?.next     // Save next node
+//
+//        current?.next = previous         // Reverse the link
+//
+//        previous = current               // Move previous forward
+//        current = nextNode               // Move current forward
+//    }
+//
+//    return previous
+//}
