@@ -40,4 +40,31 @@ let graph = [
     [2, 4]       // 5
 ]
 
-print(bfs(graph, 0))
+
+
+func bfsTraversal(_ graph: [[Int]]) -> [Int] {
+    let n = graph.count
+    var visited = Array(repeating: false, count: n)
+    var result: [Int] = []
+
+    for i in 0..<n {
+        if !visited[i] {
+            var queue: [Int] = [i]
+            visited[i] = true
+
+            while !queue.isEmpty {
+                let node = queue.removeFirst()
+                result.append(node)
+
+                for neighbour in graph[node] {
+                    if !visited[neighbour] {
+                        visited[neighbour] = true
+                        queue.append(neighbour)
+                    }
+                }
+            }
+        }
+    }
+
+    return result
+}
